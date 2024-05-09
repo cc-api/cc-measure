@@ -24,26 +24,23 @@ Build and install CC Measurement Tool in a TDX guest.
 
 ```sh
 $ cd cc-measure
-$ sudo su
-$ virtualenv venv && source venv/bin/activate
-$ python3 setup.py bdist_wheel
-$ pip3 install dist/*.whl --force-reinstall
+$ source setupenv.sh
 ```
 
 ### Run the commands
 1. Get Event Logs.
 
     ```
-    $ ./tdx_eventlogs
+    $ sudo ./tdx_eventlogs
 
     # Display event log in Canoical Event Logs (CEL) format.
-    $ ./tdx_eventlogs -f true
+    $ sudo ./tdx_eventlogs -f true
 
-    # Display event logs from index 100.
-    $ ./tdx_eventlogs -s 100
+    # Display event logs from index 10.
+    $ sudo ./tdx_eventlogs -s 10
 
-    # Display 20 event logs from index 100
-    ./tdx_eventlogs -s 100 -c 20
+    # Display 10 event logs from index 10.
+    $ sudo ./tdx_eventlogs -s 10 -c 10
     ```
 
     The example output for the event log is [example event logs output with IMA](https://github.com/cc-api/cc-trusted-api/blob/main/docs/vmsdk-eventlog-sample-output-with-IMA.txt).
@@ -53,20 +50,26 @@ $ pip3 install dist/*.whl --force-reinstall
     _NOTE: Make sure you have remote attestation environment setup on the host to get quote._
 
     ```
-    $ ./tdx_tdquote
+    $ sudo ./tdx_tdquote
 
     # Display quote in human friendly format.
-    $ ./tdx_tdquote -f human
+    $ sudo ./tdx_tdquote -f human
     ```
 
-2. Get RTMR.
+3. Get RTMR.
 
     ```
-    ./tdx_rtmr
+    $ sudo ./tdx_rtmr
     ```
 
-3. Verify the event logs.
+4. Verify the event logs.
 
     ```
-    ./tdx_verify_rtmr
+    $ sudo ./tdx_verify_rtmr
+    ```
+
+5. (Optional) Exit python virtual environment after running the commands.
+
+    ```
+    $ deactivate
     ```
