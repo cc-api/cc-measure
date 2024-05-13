@@ -24,7 +24,7 @@ def load_requirements():
 
 setup(
     name='cc-measure',
-    version='0.4.0',
+    version='0.5.0',
     packages=['tdxmeasure'],
     package_data={
         '': ['tdx_eventlogs', 'tdx_tdquote', 'tdx_rtmr', 'tdx_verify_rtmr']
