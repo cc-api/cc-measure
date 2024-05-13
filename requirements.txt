@@ -1,5 +1,5 @@
 wheel
 setuptools
-cctrusted_base
-cctrusted_vm
+cctrusted_base==0.4.0
+cctrusted_vm==0.4.0
 
